@@ -1,17 +1,25 @@
-import react from "react";
+import React, { useState } from "react";
 import "../../styles/trafficlight.css"
 
-const trafficLight = () => {
-return (
-    <>
-    <div className="stem"></div>
-    <div className="traffic-light-body">
-       <div className="red"></div>
-       <div className="yellow"></div> 
-       <div className="green"></div> 
-    </div> 
-    </>
-)
+const TrafficLight = () => {
+    const [chosenColor, setChosenColor] = useState("");
+
+    return (
+      
+      
+      <div className="stem">    
+
+       <div className="traffic-light-body">
+            
+            <div onClick={()=> {setChosenColor("red")}} className={`red ${chosenColor == "red" ? "selected":""}`}></div>
+            <div onClick={()=> {setChosenColor("yellow")}}className={`yellow ${chosenColor == "yellow" ? "selected":""}`}></div>
+            <div onClick={()=> {setChosenColor("green")}} className={`green ${chosenColor == "green" ? "selected":""}`}></div>
+            
+     </div>
+     </div> 
+         
+    )
 }
 
-export default trafficLight;
+
+export default TrafficLight;

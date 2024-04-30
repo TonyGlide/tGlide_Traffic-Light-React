@@ -1,12 +1,11 @@
 import React from "react";
-import trafficLight from "./trafficlight";
+import TrafficLight from "./trafficlight";
 
 const Home = () => {
 	return (
-		<>
-		<trafficLight />
-		</>
 		
+		<TrafficLight />
+				
 	);
 };
 
