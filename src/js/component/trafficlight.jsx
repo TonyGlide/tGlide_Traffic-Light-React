@@ -1,25 +1,58 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from 'react';
 import "../../styles/trafficlight.css"
 
 const TrafficLight = () => {
-    const [chosenColor, setChosenColor] = useState("");
+  const [color, setColor] = useState('');
+  const [isIntervalRunning, setIsIntervalRunning] = useState(false);
 
-    return (
+  useEffect(() => {
+    let intervalId;
+    if (isIntervalRunning) {
+      intervalId = setInterval(() => {
+        setColor((prevColor) => {
+          switch (prevColor) {
+            case 'red':
+              return 'yellow';
+            case 'yellow':
+              return 'green';
+            case 'green':
+              return 'red';
+            default:
+              return 'red';
+          }
+        });
+      }, 2000);
+    }
+    return () => clearInterval(intervalId);
+  }, [isIntervalRunning]);
+
+  const handleButtonClick = () => {
+    setIsIntervalRunning((prevState) => !prevState);
+  };
+
+  const handleLightClick = (clickedColor) => {
+    if (!isIntervalRunning) {
+      setColor(clickedColor);
+    }
+  };
+
+  return (
+    <div className="body">
+      <div className="stem" />
+      <div className="traffic-light-body">
+      <div className={`red light ${color === 'red' ? 'active' : ''}`}
+          onClick={() => handleLightClick('red')}/>
+      <div className={`yellow light ${color === 'yellow' ? 'active' : ''}`}
+          onClick={() => handleLightClick('yellow')}/>
+      <div className={`green light ${color === 'green' ? 'active' : ''}`}
+          onClick={() => handleLightClick('green')}/>
+      </div>
       
-      
-      <div className="stem">    
-
-       <div className="traffic-light-body">
-            
-            <div onClick={()=> {setChosenColor("red")}} className={`red ${chosenColor == "red" ? "selected":""}`}></div>
-            <div onClick={()=> {setChosenColor("yellow")}}className={`yellow ${chosenColor == "yellow" ? "selected":""}`}></div>
-            <div onClick={()=> {setChosenColor("green")}} className={`green ${chosenColor == "green" ? "selected":""}`}></div>
-            
-     </div>
-     </div> 
-         
-    )
-}
-
+      <button onClick={handleButtonClick}>
+        {isIntervalRunning ? 'Stop' : 'Start'}
+      </button>
+    </div>
+  );
+};
 
 export default TrafficLight;

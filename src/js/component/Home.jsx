@@ -3,9 +3,10 @@ import TrafficLight from "./trafficlight";
 
 const Home = () => {
 	return (
-		
+		<>
 		<TrafficLight />
-				
+		</>
+		
 	);
 };
 

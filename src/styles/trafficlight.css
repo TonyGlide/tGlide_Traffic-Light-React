@@ -1,43 +1,54 @@
+.body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 30px;
+}
+
+button {
+  margin-top: 10px;
+  
+}
+
 .stem {
-background-color: black;
-margin: auto;
-width: 30px;
-height: 80px;
+  background-color: black;
+  width: 30px;
+  height: 200px;
 }
 
 .traffic-light-body {
-background-color: black;
-width: 100px;
-height: 280px;
-margin: auto;
-border-radius: 15px 15px;
-padding: 15px 10px;
-
+  background-color: black;
+  width: 200px;
+  height: 450px;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
-.red{
-background-color: red;
-width: 80px;
-height: 80px;
-border-radius: 100px;
+.light {
+  width: 115px;
+  height: 125px;
+  border-radius: 50%;
+  margin-left: 42px;
+  margin-bottom: 30px;
+  transition: box-shadow 0.5s ease-in-out;
+}
+
+.light.active {
+  box-shadow: 0 0 70px rgb(254, 249, 232); 
+}
+  
+.red {
+  background-color: red;
+  margin-top: 30px;
 }
 
 .yellow {
-background-color: yellow;
-width: 80px;
-height: 80px;
-border-radius: 100px;
-margin: 5px 0;
-}
-.green{
-background-color: green;
-width: 80px;
-height: 80px;
-border-radius: 100px;
+  background-color: yellow;
 }
 
-.selected {
-    box-shadow: 1px 1px 40px 20px rgb(247, 255, 185);
-    opacity: 1;
-    
+.green {
+  background-color: green;
 }
