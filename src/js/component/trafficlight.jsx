@@ -49,7 +49,7 @@ const TrafficLight = () => {
       </div>
       
       <button onClick={handleButtonClick}>
-        {isIntervalRunning ? 'Stop' : 'Start'}
+        {isIntervalRunning ? '0' : '1'}
       </button>
     </div>
   );
